@@ -10,8 +10,18 @@ def read_vocab_from_file(tok_config_path):
     return vocab
 
 def read_vocab(tok_path):
-    tok = AutoTokenizer.from_pretrained(tok_path)
-    return tok.vocab
+    tok = AutoTokenizer.from_pretrained(tok_path, trust_remote_code=True)
+    # Try .vocab attribute first, fall back to get_vocab() method if needed
+    if hasattr(tok, 'vocab') and tok.vocab is not None:
+        return tok.vocab
+    elif hasattr(tok, 'get_vocab'):
+        return tok.get_vocab()
+    else:
+        # Fallback: try to get vocab from tokenizer's underlying tokenizer
+        if hasattr(tok, 'tokenizer') and hasattr(tok.tokenizer, 'get_vocab'):
+            return tok.tokenizer.get_vocab()
+        else:
+            raise AttributeError(f"Tokenizer from {tok_path} does not have vocab attribute or get_vocab() method")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
