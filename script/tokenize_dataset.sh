@@ -12,8 +12,8 @@ export TOKENIZER_PATH="./data/pythia2biogpt/TokAlign-Init-1B"
 # export TRAIN_FILE="./data/pretrain-corpus/pile00.json"
 export TRAIN_FILE="./data/pretrain-corpus/pubmed-abstract.json"
 
-# export DATASET_PATH="./data/pretrain-dataset/pile00-biogpt-tokenized"
-export DATASET_PATH="./data/pretrain-dataset/pile00-sample-biogpt-tokenized"
+export DATASET_PATH="./data/pretrain-dataset/pile00-biogpt-tokenized"
+# export DATASET_PATH="./data/pretrain-dataset/pile00-sample-biogpt-tokenized"
 
 export NUM_WORKERS=60
 export BLOCK_SIZE=2048
