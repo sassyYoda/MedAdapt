@@ -5,8 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 export MAIN_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd ${MAIN_DIR}
 
-# export TGT_ID_2_SRC_ID_RES_PATH="${MAIN_DIR}/data/pythia2biogpt/align_matrix.json"
-export TGT_ID_2_SRC_ID_RES_PATH="${MAIN_DIR}/data/pythia2biogpt/align_matrix_demo.json"
+export TGT_ID_2_SRC_ID_RES_PATH="${MAIN_DIR}/data/pythia2biogpt/align_matrix.json"
+# export TGT_ID_2_SRC_ID_RES_PATH="${MAIN_DIR}/data/pythia2biogpt/align_matrix_demo.json"
 
 export MODLE_PATH1="EleutherAI/pythia-1b"
 
